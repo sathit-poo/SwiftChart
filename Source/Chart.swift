@@ -208,7 +208,7 @@ open class Chart: UIControl {
     /**
     Alpha component for the area color.
     */
-    open var areaAlphaComponent: CGFloat = 0.1
+    open var areaAlphaComponent: CGFloat = 0.5
 
     // MARK: Private variables
 
