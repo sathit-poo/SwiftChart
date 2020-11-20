@@ -602,8 +602,10 @@ open class Chart: UIControl {
                 label.frame.size.width = (drawingWidth / CGFloat(labels.count)) - padding * 2
                 label.textAlignment = xLabelsTextAlignment
             } else {
-                label.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
+                label.transform = CGAffineTransform(rotationAngle: -CGFloat(Double.pi / 2.2))
 
+                // nick
+                label.font = label.font.withSize(10)
                 // Adjust vertical position according to the label's height
                 label.frame.origin.y += label.frame.size.height / 2
 
@@ -614,7 +616,7 @@ open class Chart: UIControl {
                     label.frame.origin.x += ((drawingWidth / CGFloat(labels.count)) / 2) - (label.frame.size.width / 2)
                 } else {
                     // Give some space from the vertical line
-                    label.frame.origin.x += padding
+                    label.frame.origin.x += padding - 20
                 }
             }
             self.addSubview(label)
@@ -637,7 +639,7 @@ open class Chart: UIControl {
         }
 
         let scaled = scaleValuesOnYAxis(labels)
-        let padding: CGFloat = 5
+        let padding: CGFloat = -10
         let zero = CGFloat(getZeroValueOnYAxis(zeroLevel: 0))
 
         scaled.enumerated().forEach { (i, value) in
